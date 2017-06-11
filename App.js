@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View, Dimensions } from 'react-native'
 
 import Canvas from './app/components/Canvas'
 
@@ -9,18 +9,16 @@ const renderCanvas = (canvas) => {
   ctx.fillRect(0, 0, canvas.width, canvas.height)
 }
 
+const { width, height } = Dimensions.get('window')
+
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Yo maeen! Open up App.js to start working on your app!</Text>
-        <Text style={styles.text}>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-
         <Canvas
           context={{message: 'Hello!'}}
           render={renderCanvas}
-          style={{height: 200, width: 200}}
+          style={{width, height}}
         />
       </View>
     )
@@ -33,8 +31,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'powderblue',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  text: {
-    color: 'white',
   }
 })

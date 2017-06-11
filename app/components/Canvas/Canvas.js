@@ -8,9 +8,7 @@ const Canvas = ({ context, render, style }) => {
 
   return (
     <WebView
-      automaticallyAdjustContentInsets={false}
-      contentInset={{top: 0, right: 0, bottom: 0, left: 0}}
-      source={{html: '<style>*{margin:0;padding:0}canvas{transform:translateZ(0)}</style><canvas></canvas>'}}
+      source={{html: `<style>*{margin:0;padding:0}canvas{transform:translateZ(0)}</style><canvas width="${style.width + 1}" height="${style.height + 1}"></canvas>`}}
       injectedJavaScript={jsCode}
       style={style}
     />
